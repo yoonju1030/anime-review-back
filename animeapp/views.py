@@ -14,7 +14,17 @@ def hello_world(request):
 def get_anime(request): 
     try:
         result = db.get_many_data(db.db, "anime", {"genres": ["스포츠", '드라마']})
-        anime = [{"id":str(a['_id']), "name": a['name'], 'image': a['image'], 'tags':a['tags']} for a in result]
+        anime = []
+        for a in result:
+            obj = {
+                "id":str(a['_id']), 
+                "Name": a['name'], 
+                'Image': a['image'], 
+            }
+            anime.append(obj)
+        
+        for a in range(len(anime)):
+            anime[a]["idx"] = a
         return Response({"message": anime})
     except Exception as e:
         raise e
