@@ -28,7 +28,9 @@ def get_anime(request):
         for a in range(len(anime)):
             anime[a]["idx"] = a
         shuffle(anime)
-        return Response({"message": anime})
+        res = Response({"message": anime})
+        res["Access-Control-Allow-Origin"]="*"
+        return res
     except Exception as e:
         raise e
     

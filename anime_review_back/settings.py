@@ -29,7 +29,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['localhost', "35.209.2.128"]
 
-
 # Application definition
 
 INSTALLED_APPS = [
@@ -56,26 +55,22 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-# CORS_ORIGIN_WHITELIST=(
     'http://127.0.0.1:8080',
     'http://localhost:8080', 
     "http://35.209.196.239:8080",
     "http://35.209.2.128"
-# )
 ]
-# CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_CREDENTIALS = True
-CORS_ALLOW_METHODS = (
+CORS_ALLOW_METHODS = [
     "DELETE",
     "GET",
     "OPTIONS",
     "PATCH",
     "POST",
     "PUT",
-)
+]
 
-# CORS_ALLOW_ALL_HEADERS = True
-CORS_ALLOW_HEADERS = (
+CORS_ALLOW_HEADERS = [
     'accept',
     'accept-encoding',
     'authorization',
@@ -85,7 +80,7 @@ CORS_ALLOW_HEADERS = (
     'user-agent',
     'x-csrftoken',
     'x-requested-with',
-)
+]
 
 ROOT_URLCONF = 'anime_review_back.urls'
 
