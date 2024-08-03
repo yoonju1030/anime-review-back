@@ -59,7 +59,7 @@ CORS_ALLOWED_ORIGINS = [
 # CORS_ORIGIN_WHITELIST=(
     'http://127.0.0.1:8080',
     'http://localhost:8080', 
-    "http://35.209.196.239:8000",
+    "http://35.209.196.239:8080",
     "http://35.209.2.128"
 # )
 ]
