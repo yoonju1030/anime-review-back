@@ -10,5 +10,6 @@ class Config(object):
     MONGODB_DATABASE = os.environ["MONGODB_DATABASE"]
     MONGODB_HOST = os.environ["MONGODB_HOST"]
     MONGODB_PORT = os.environ["MONGODB_PORT"]
+    ALLOWED_HOST = os.environ["ALLOWED_HOST"]
 
 config = {"config": Config}
