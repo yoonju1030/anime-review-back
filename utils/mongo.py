@@ -55,3 +55,10 @@ class MongoDB():
             selected_data = mongo_db[collection_name].find(query).sort(sort, sort_type)
 
         return selected_data
+    
+    def insert_one_data(self, mongo_db, collection_name, insert_data):
+        try:
+            inserted_data_result = mongo_db[collection_name].insert_one(insert_data)
+            return str(inserted_data_result.inserted_id)
+        except Exception as e:
+            raise e
