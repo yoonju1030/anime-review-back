@@ -22,6 +22,8 @@ def check_unique_id(request):
 def sign_up_user(request):
     try:
         id = request.data['id']
+        if id == None:
+            raise e
         pwd = request.data['password']
         now_date = datetime.now()
         insert_data = {
@@ -35,4 +37,4 @@ def sign_up_user(request):
         inserted_id = db.insert_one_data(db.db, 'users', insert_data)
         return Response({'message': "sign up finish", 'result': inserted_id})
     except Exception as e:
-        return Response({'message': e.message, 'result': False})
+        return Response({'message': "sign up fail", 'result': False})
