@@ -95,9 +95,15 @@ def test(request):
         raise e
 
 @api_view(["POST"])
+@permission_classes([IsAuthenticated])
 def log_out_user(request):
     try:
-        pass
+        response = Response({
+            "message": "Logout success"
+            }, status=status.HTTP_202_ACCEPTED)
+        response.delete_cookie("access")
+        response.delete_cookie("refresh")
+        return response
     except Exception as e:
         raise e
     
