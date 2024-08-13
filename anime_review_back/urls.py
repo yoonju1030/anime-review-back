@@ -21,5 +21,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('anime/', include('animeapp.urls')),
     path('api-auth/', include('rest_framework.urls')),
-    path('users/', include('userapp.urls'))
+    path('users/', include('userapp.urls')),
+    path('comments/', include('commentapp.urls'))
 ]
