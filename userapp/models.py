@@ -33,6 +33,16 @@ class User(AbstractBaseUser, PermissionsMixin):
     # User 모델의 필수 field
     is_active = models.BooleanField(default=True)    
     is_admin = models.BooleanField(default=False)
+    # groups = models.ManyToManyField(
+    #     'auth.Group',
+    #     related_name='userapp_users',  # 충돌 방지를 위한 이름 변경
+    #     blank=True,
+    # )
+    # user_permissions = models.ManyToManyField(
+    #     'auth.Permission',
+    #     related_name='userapp_users_permissions',  # 충돌 방지를 위한 이름 변경
+    #     blank=True,
+    # )
 
 	# 사용자의 username field는 email으로 설정 (이메일로 로그인)
     USERNAME_FIELD = 'id'
