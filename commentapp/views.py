@@ -36,11 +36,11 @@ def get_all_comment_by_anime(request):
         return Response({'message': "Fail to get comment", 'result': False})
     
 @api_view(["POST"])
-def get_all_comment_by_anime(request):
+def get_comment_by_users(request):
     try:
         user_id = request.data.get('userId')
         result = db.get_many_data(db.db, "commentapp_comment", {"user_id": user_id})
-        comments = [{"content": a['content'], "anime": a['anime'], "time": a['created_at']} for a in result]
+        comments = [{"content": a['content'], "id": a['anime'], "time": a['created_at']} for a in result]
         return Response({'message': "Success to get comments", 'result':comments})
     except Exception as e:
         return Response({'message': "Fail to get comment", 'result': False})
