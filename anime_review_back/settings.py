@@ -14,6 +14,8 @@ from pathlib import Path
 import os
 import environ
 from utils.config import Config
+from datetime import timedelta
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -96,6 +98,11 @@ CORS_ALLOW_HEADERS = [
 ]
 
 ROOT_URLCONF = 'anime_review_back.urls'
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1)
+}
 
 TEMPLATES = [
     {
